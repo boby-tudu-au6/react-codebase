@@ -1,0 +1,1 @@
+export const getUser = () => (dispatch) => dispatch({ type: 'DO_SOMETHING' });
