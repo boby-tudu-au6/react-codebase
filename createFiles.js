@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const data = require('./packageData')
+const reactData = require('./reactData')
+const nextData = require('./nextData')
 const { exec } = require('child_process');
 
 async function copyDir(src, dest) {
@@ -23,10 +24,14 @@ async function copyDir(src, dest) {
     }
 }
 
-const main = (name) => {
-    copyDir(path.join(__dirname, 'src'), name)
+const main = (type, name) => {
+    copyDir(path.join(__dirname, type), name)
     var writeStream = fs.createWriteStream(`${name}/package.json`);
-    writeStream.write(JSON.stringify(data(name), null, 2));
+    if (type==='react') {
+        writeStream.write(JSON.stringify(reactData(name), null, 2));
+    } else if (type==='next') {
+        writeStream.write(JSON.stringify(nextData(name), null, 2));
+    }
     writeStream.end();
     exec(`cd ${name} && git init && git add .`, (err, stdout, stderr) => {
         if (err) {
