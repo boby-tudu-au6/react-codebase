@@ -1,9 +1,9 @@
 {
-  "name": "react-codebase",
+  "name": "generate-code-base",
   "bin": {
-    "package-boby": "./index.js"
+    "generate-code-base": "./index.js"
 },
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {

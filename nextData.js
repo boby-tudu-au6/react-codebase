@@ -1,4 +1,4 @@
-export default function data(name) {
+const data = (name) => {
     return ({
         "name": name,
         "version": "0.1.0",
@@ -29,3 +29,5 @@ export default function data(name) {
 
     })
 }
+
+module.exports = data
